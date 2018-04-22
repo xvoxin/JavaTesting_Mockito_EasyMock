@@ -43,7 +43,7 @@ Ponadto, jako punkty dodatkowe będą brane następujące elementy:
 - (1 pkt) Użycie różnych rodzaji atrap.
 - (1 pkt) Wynik z portalu BetterCodeHub.
 - (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
-- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Integracja repozytorium z dowolnym serwisem.
 - (1 pkt) Użycie JUnit5.
 
 Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
@@ -91,7 +91,7 @@ Ponadto, jako punkty dodatkowe będą brane następujące elementy:
 - (1 pkt) Użycie różnych rodzaji atrap.
 - (1 pkt) Wynik z portalu BetterCodeHub.
 - (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
-- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Integracja repozytorium z dowolnym serwisem.
 - (1 pkt) Użycie JUnit5.
 
 Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
@@ -130,7 +130,7 @@ Ponadto, jako punkty dodatkowe będą brane następujące elementy:
 - (1 pkt) Użycie różnych rodzaji atrap.
 - (1 pkt) Wynik z portalu BetterCodeHub.
 - (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
-- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Integracja repozytorium z dowolnym serwisem.
 - (1 pkt) Użycie JUnit5.
 
 Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
@@ -163,7 +163,7 @@ Ponadto, jako punkty dodatkowe będą brane następujące elementy:
 - (1 pkt) Użycie różnych rodzaji atrap.
 - (1 pkt) Wynik z portalu BetterCodeHub.
 - (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
-- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Integracja repozytorium z dowolnym serwisem.
 - (1 pkt) Użycie JUnit5.
 
 Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
@@ -198,7 +198,7 @@ Ponadto, jako punkty dodatkowe będą brane następujące elementy:
 - (1 pkt) Użycie różnych rodzaji atrap.
 - (1 pkt) Wynik z portalu BetterCodeHub.
 - (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
-- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Integracja repozytorium z dowolnym serwisem.
 - (1 pkt) Użycie JUnit5.
 
 Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
@@ -231,7 +231,7 @@ Ponadto, jako punkty dodatkowe będą brane następujące elementy:
 - (1 pkt) Użycie różnych rodzaji atrap.
 - (1 pkt) Wynik z portalu BetterCodeHub.
 - (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
-- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Integracja repozytorium z dowolnym serwisem.
 - (1 pkt) Użycie JUnit5.
 
 Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
