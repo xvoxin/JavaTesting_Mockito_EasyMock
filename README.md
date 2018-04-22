@@ -24,3 +24,27 @@ zmiany w kodzie podane przez prowadzącego!
 
 -----------------------
 
+**Projekt 1** (12 pkt)
+
+Tutaj znajduje się interfejs panelu sterującegp odtwarzaczem MP3. Utwórz
+klasę wypełniając metody z interfejsu i przetestuj działanie odtwarzacza MP3. Przykładowa klasa
+testująca jest tutaj.
+Pod ocenę będą brane pod uwagę następujące elementy:
+- (0.5 pkt) Kompilacja i uruchomienie bezbłędne projektu + konfiguracja TravisCi.
+- (1 pkt) Uwzględnienie wymagań interfejsu.
+- (3 pkt) Przypadki testowe (uwzględniające wyjątki).
+- (2 pkt) Przetestowanie przy użyciu ręcznie stworzonych atrap (co najmniej 5 testów)
+- (2 pkt) Przetestowanie przy użyciu Mockito (co najmniej 5 testów).
+- (2 pkt) Przetestowanie przy użyciu EasyMock (co najmniej 5 testów).
+- (0.5 pkt) Pokrycie kodu (w przypadku ręcznie stworzonych atrap).
+- (1 pkt) Styl kodu.
+
+Ponadto, jako punkty dodatkowe będą brane następujące elementy: 
+- (1 pkt) Wynik z portalu BetterCodeHub.
+- (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
+- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+
+Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
+punktacji zadania!)
+• Historia projektu w repozytorium.
+• Różnorodne asercje (co najmniej 5 różnych).
