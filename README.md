@@ -26,7 +26,7 @@ zmiany w kodzie podane przez prowadzącego!
 
 **Projekt 1** (12 pkt)
 
-W pliku **Device.java** znajduje się interfejs panelu sterującegp odtwarzaczem MP3. Utwórz
+W pliku **Device.java** znajduje się interfejs panelu sterującego odtwarzaczem MP3. Utwórz
 klasę wypełniając metody z interfejsu i przetestuj działanie odtwarzacza MP3. Przykładowa klasa
 testująca znajduje się w pliku **DeviceTest.java**.
 Pod ocenę będą brane pod uwagę następujące elementy:
