@@ -1,5 +1,5 @@
 # Testowanie aplikacji JAVA 2017-2018
-## Projekt 1 (JUnit, narzędzie Hamcrest oraz MAVEN) 
+## Projekt 2 (Maven, JUnit oraz atrapy) 
 
 -----------------------
 ### REGUŁY GRY
@@ -26,9 +26,9 @@ zmiany w kodzie podane przez prowadzącego!
 
 **Projekt 1** (12 pkt)
 
-Tutaj znajduje się interfejs panelu sterującegp odtwarzaczem MP3. Utwórz
+W pliku **Device.java** znajduje się interfejs panelu sterującegp odtwarzaczem MP3. Utwórz
 klasę wypełniając metody z interfejsu i przetestuj działanie odtwarzacza MP3. Przykładowa klasa
-testująca jest tutaj.
+testująca znajduje się w pliku **DeviceTest.java**.
 Pod ocenę będą brane pod uwagę następujące elementy:
 - (0.5 pkt) Kompilacja i uruchomienie bezbłędne projektu + konfiguracja TravisCi.
 - (1 pkt) Uwzględnienie wymagań interfejsu.
@@ -40,11 +40,119 @@ Pod ocenę będą brane pod uwagę następujące elementy:
 - (1 pkt) Styl kodu.
 
 Ponadto, jako punkty dodatkowe będą brane następujące elementy: 
+- (1 pkt) Użycie różnych rodzaji atrap.
 - (1 pkt) Wynik z portalu BetterCodeHub.
 - (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
 - (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Użycie JUnit5.
 
 Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
 punktacji zadania!)
-• Historia projektu w repozytorium.
-• Różnorodne asercje (co najmniej 5 różnych).
+- Historia projektu w repozytorium.
+- Różnorodne asercje (co najmniej 5 różnych).
+- Struktura projektu.
+
+-----------------
+
+**Projekt 2** (16 pkt)
+
+Jesteś deweloperem piszącym fragment (bardzo uproszczonej) aplikacji (tutaj klasy **Messenger**) wysyłającej komunikaty do serwera. Twoja klasa korzysta z implementacji interfejsu **MessageService**. Zadaniem twojej aplikacji (uwaga: często spotykane w praktyce) jest m.in. ukrywanie statusów oraz wyjątków generowanych przez wykorzystywane komponenty takie jak **MessageService**. Zgodnie z życzeniem klienta twoja metoda odpowiedzialna za wysyłanie komunikatów ma zwracać liczby:
+- 0 gdy powodzenie
+- 1 gdy występują problemy z wysłaniem
+- 2 gdy adres serwera lub komunikat jest niewłaściwie zbudowany
+Klasa **Messenger** powinna też dostarczać metodę do testowania połączenia z serwerem zwracającym
+liczby:
+- 0 w przypadku sukcesu
+- 1 w przeciwnym przypadku
+Szkielet systemu jest zaimplementowany w pliku **messenger.zip**.
+Dokończ klasę **Messenger**, a następnie przy użyciu poznawanych technologii przeprowadź testy
+jednostkowe w tzw. izolacji (czyli bez gotowej implementacji **MessageService**)
+
+Pod ocenę będą brane pod uwagę następujące elementy:
+- (0.5 pkt) Kompilacja i uruchomienie bezbłędne projektu + konfiguracja TravisCi.
+- (2 pkt) Uwzględnienie powyższych wymagań.
+- (3 pkt) Przypadki testowe (uwzględniające wyjątki).
+- (3 pkt) Przetestowanie przy użyciu ręcznie stworzonych atrap (co najmniej 6 testów, różnych od pozostałych)
+- (3 pkt) Przetestowanie przy użyciu Mockito (co najmniej 6 testów, różnych od pozostałych).
+- (3 pkt) Przetestowanie przy użyciu EasyMock (co najmniej 6 testów, różnych od pozostałych).
+- (0.5 pkt) Pokrycie kodu (w przypadku ręcznie stworzonych atrap).
+- (1 pkt) Styl kodu.
+
+Ponadto, jako punkty dodatkowe będą brane następujące elementy: 
+- (1 pkt) Użycie różnych rodzaji atrap.
+- (1 pkt) Wynik z portalu BetterCodeHub.
+- (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
+- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Użycie JUnit5.
+
+Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
+punktacji zadania!)
+- Historia projektu w repozytorium.
+- Różnorodne asercje (co najmniej 5 różnych).
+- Struktura projektu.
+
+--------------------------------------------------
+
+**Projekt 3** (20 pkt)
+
+Rozważmy grę w kółko i krzyżyk (lub czwórki czy statki) z poprzedniego projektu. Teraz dodajmy do tej gry bazę **MongoDB** z użyciem **Jongo** (patrz przykład wykorzystany w atrapach) Dopiszmy do
+niej odpowiednie wymagania:
+- Dodaj opcję umożliwiającą zapisanie posunięcia z numerem kolejki, pozycjami na planszy/mapie oraz ewentualnie symbol gracza (w przypadku gier).
+- Zapisuj każdy ruch w bazie danych i zapewnij to, że utworzenie nowej sesji spowoduje usunięcie
+starszych danych.
+
+Pod ocenę będą brane pod uwagę następujące elementy:
+- (0.5 pkt) Kompilacja i uruchomienie bezbłędne projektu + konfiguracja TravisCi.
+- (3 pkt) Uwzględnienie powyższych wymagań.
+- (5 pkt) Przypadki testowe (uwzględniające wyjątki).
+- (4 pkt) Przetestowanie przy użyciu ręcznie stworzonych atrap (co najmniej 8 testów, różnych od pozostałych)
+- (3 pkt) Przetestowanie przy użyciu Mockito (co najmniej 8 testów, różnych od pozostałych).
+- (3 pkt) Przetestowanie przy użyciu EasyMock (co najmniej 8 testów, różnych od pozostałych).
+- (0.5 pkt) Pokrycie kodu (w przypadku ręcznie stworzonych atrap).
+- (1 pkt) Styl kodu.
+
+Ponadto, jako punkty dodatkowe będą brane następujące elementy: 
+- (1 pkt) Użycie różnych rodzaji atrap.
+- (1 pkt) Wynik z portalu BetterCodeHub.
+- (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
+- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Użycie JUnit5.
+
+Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
+punktacji zadania!)
+- Historia projektu w repozytorium.
+- Różnorodne asercje (co najmniej 5 różnych).
+- Struktura projektu.
+
+--------------------------------------------
+
+**Projekt 4** (25 pkt)
+
+Rozważmy bardzo uproszczoną aplikacje w sklepie internetowym, która jest opisana danym diagramem związków encji:
+![Diagram ERD](https://inf.ug.edu.pl/~mmiotk/Dydaktyka/2016-2017/TAJAVA2016-2017/ERD.png)
+
+Dane do bazy mają być przechowywane w jakimś systemie bazodanowym. Zaimplementuj odpowiednie metody tej aplikacji i przetestuj ją uwzględniając wymagania zawarte w diagramie używając atrap oraz scenariuszy akceptacyjnych.
+
+Pod ocenę będą brane pod uwagę następujące elementy:
+- (0.5 pkt) Kompilacja i uruchomienie bezbłędne projektu + konfiguracja TravisCi.
+- (4 pkt) Uwzględnienie powyższych wymagań.
+- (6 pkt) Przypadki testowe (uwzględniające wyjątki).
+- (5 pkt) Przetestowanie przy użyciu ręcznie stworzonych atrap (co najmniej 10 testów, różnych od pozostałych)
+- (4 pkt) Przetestowanie przy użyciu Mockito (co najmniej 10 testów, różnych od pozostałych).
+- (4 pkt) Przetestowanie przy użyciu EasyMock (co najmniej 10 testów, różnych od pozostałych).
+- (0.5 pkt) Pokrycie kodu (w przypadku ręcznie stworzonych atrap).
+- (1 pkt) Styl kodu.
+
+Ponadto, jako punkty dodatkowe będą brane następujące elementy: 
+- (1 pkt) Użycie różnych rodzaji atrap.
+- (1 pkt) Wynik z portalu BetterCodeHub.
+- (2 pkt) Inne technologie dotyczące atrap, nie pokazywane na zajęciach (co najmniej po 5 testów każda z nich).
+- (1 pkt) Integracja repozytorium z serwisem CodeClimate.
+- (1 pkt) Użycie JUnit5.
+
+Ponadto pod ocenę jest brane również: (Brak tych elementów: -1 pkt za podpunkt od obowiązkowej
+punktacji zadania!)
+- Historia projektu w repozytorium.
+- Różnorodne asercje (co najmniej 5 różnych).
+- Struktura projektu.
+
