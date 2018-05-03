@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-class MockitoTests
+class MockitoTest
 {
     private final String CLIENT_NAME = "Adrian";
     private final String CLIENT_NAME2 = "Krzysztof";
@@ -59,7 +59,7 @@ class MockitoTests
         verify(dbMock, times(1)).AddClient(any(Client.class));
     }
 
-    @Test void CheckAddClient_ShouldThrowException ()
+    @Test void CheckAddWronglyClient_ShouldThrowException ()
     {
         Client client = new Client("very", "bad", "exception");
         when(dbMock.AddClient(any(Client.class))).thenThrow(new IllegalArgumentException("Get out!"));
@@ -104,15 +104,15 @@ class MockitoTests
 
     @Test void CheckGetClientByName_ShouldReturnProperClient ()
     {
-        when(dbMock.GetClientByName(CLIENT_NAME)).thenReturn(client);
+        doReturn(client).when(dbMock).GetClientByName(CLIENT_NAME);
 
         assertEquals(webShopController.GetClientByName(CLIENT_NAME), client);
         verify(dbMock, times(1)).GetClientByName(CLIENT_NAME);
     }
 
-    @Test void CheckGetAllClients_EmptyDB_ShouldReturnZeroClients ()
+    @Test void CheckGetAllClients_EmptyDB_ShouldReturnEmptyList ()
     {
-        when(dbMock.GetAllClients()).thenReturn(new ArrayList<>());
+        doReturn(new ArrayList<>()).when(dbMock).GetAllClients();
 
         assertThat(webShopController.GetAllClients()).hasSize(0);
         verify(dbMock, times(1)).GetAllClients();
@@ -125,7 +125,7 @@ class MockitoTests
         Client client4 = new Client(CLIENT_NAME4, CLIENT_SURNAME, CLIENT_EMAIL);
 
         List<Client> clients = new ArrayList<>(Arrays.asList(new Client[]{client, client2, client3, client4}));
-        when(dbMock.GetAllClients()).thenReturn(clients);
+        doReturn(clients).when(dbMock).GetAllClients();
 
         assertThat(webShopController.GetAllClients()).
                 hasSize(4).containsOnly(client, client2, client3, client4);
@@ -156,12 +156,12 @@ class MockitoTests
             {
                 String email = (String)args[0];
                 Client cl = (Client)args[1];
-                cl.setEmail(email);
+                cl.Email = email;
             }
             return null;
         }).when(dbMock).EditClientEmail(any(String .class), any(Client.class));
 
         webShopController.EditClientEmail(NEW_EMAIL, client);
-        assertThat(client.getEmail()).isEqualTo(NEW_EMAIL);
+        assertThat(client.Email).isEqualTo(NEW_EMAIL);
     }
 }
