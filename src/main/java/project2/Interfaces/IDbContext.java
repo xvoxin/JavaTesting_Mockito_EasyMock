@@ -8,23 +8,23 @@ import java.util.List;
 
 public interface IDbContext
 {
-    void AddClient(Client client);
+    boolean AddClient(Client client);
     Client GetClientByName(String name);
     List<Client> GetAllClients();
-    void DeleteClient(Client client);
-    void EditClient(Client client);
+    boolean DeleteClient(Client client);
+    boolean EditClient(Client client);
 
-    void AddProduct(Product product);
+    boolean AddProduct(Product product);
     Product GetProductByName(String name);
     List<Product> GetAllProducts();
-    void DeleteProduct(Product product);
-    void EditProduct(Product product);
+    boolean DeleteProduct(Product product);
+    boolean EditProduct(Product product);
 
     List<Order> GetClientOrders(Client client);
     List<Product> GetProductsByOrder(Order order);
-    void CreateOrder(Product product, Order order);
+    boolean CreateOrder(Product product, Order order);
 
-    void AddOrder(Order order);
+    boolean AddOrder(Order order);
     Order GetOrderById(int id);
-    void DeleteOrder(Order order);
+    boolean DeleteOrder(Order order);
 }

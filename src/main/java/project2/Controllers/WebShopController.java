@@ -14,16 +14,20 @@ public class WebShopController implements IWebShopController
         this.dbcontext = dbcontext;
     }
 
-
-    public void AddClient (Client client)
+    public boolean AddClient (Client client)
     {
-        dbcontext.AddClient(client);
+        return dbcontext.AddClient(client);
     }
 
-    public void AddClients (List<Client> clients)
+    public int AddClients (List<Client> clients)
     {
+        int res = 0;
         for (Client client : clients)
-            dbcontext.AddClient(client);
+        {
+            if(dbcontext.AddClient(client))
+                res++;
+        }
+        return res;
     }
 
     public Client GetClientByName (String name)
@@ -36,25 +40,30 @@ public class WebShopController implements IWebShopController
         return dbcontext.GetAllClients();
     }
 
-    public void DeleteClient (Client client)
+    public boolean DeleteClient (Client client)
     {
-        dbcontext.DeleteClient(client);
+        return dbcontext.DeleteClient(client);
     }
 
-    public void EditClient (Client client)
+    public boolean EditClient (Client client)
     {
-        dbcontext.EditClient(client);
+        return dbcontext.EditClient(client);
     }
 
-    public void AddProduct (Product product)
+    public boolean AddProduct (Product product)
     {
-        dbcontext.AddProduct(product);
+        return dbcontext.AddProduct(product);
     }
 
-    public void AddProducts (List<Product> products)
+    public int AddProducts (List<Product> products)
     {
+        int res = 0;
         for (Product product : products)
-            dbcontext.AddProduct(product);
+        {
+            if(dbcontext.AddProduct(product))
+                res++;
+        }
+        return res;
     }
 
     public Product GetProductByName (String name)
@@ -67,14 +76,14 @@ public class WebShopController implements IWebShopController
         return dbcontext.GetAllProducts();
     }
 
-    public void DeleteProduct (Product product)
+    public boolean DeleteProduct (Product product)
     {
-        dbcontext.DeleteProduct(product);
+        return dbcontext.DeleteProduct(product);
     }
 
-    public void EditProduct (Product product)
+    public boolean EditProduct (Product product)
     {
-        dbcontext.EditProduct(product);
+        return dbcontext.EditProduct(product);
     }
 
     public List<Order> GetClientOrders (Client client)
@@ -87,14 +96,14 @@ public class WebShopController implements IWebShopController
         return dbcontext.GetProductsByOrder(order);
     }
 
-    public void CreateOrder(Product product, Order order)
+    public boolean CreateOrder(Product product, Order order)
     {
-        dbcontext.CreateOrder(product, order);
+        return dbcontext.CreateOrder(product, order);
     }
 
-    public void AddOrder (Order order)
+    public boolean AddOrder (Order order)
     {
-        dbcontext.AddOrder(order);
+        return dbcontext.AddOrder(order);
     }
 
     public Order GetOrderById (int id)
@@ -102,8 +111,8 @@ public class WebShopController implements IWebShopController
         return dbcontext.GetOrderById(id);
     }
 
-    public void DeleteOrder (Order order)
+    public boolean DeleteOrder (Order order)
     {
-        dbcontext.DeleteOrder(order);
+        return dbcontext.DeleteOrder(order);
     }
 }

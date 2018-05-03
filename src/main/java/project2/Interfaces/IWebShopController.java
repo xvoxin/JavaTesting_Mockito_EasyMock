@@ -1,29 +1,31 @@
 package project2.Interfaces;
 
 import project2.Models.*;
+
+import java.io.IOException;
 import java.util.List;
 
 public interface IWebShopController
 {
-    void AddClient(Client client);
-    void AddClients(List<Client> clients);
+    boolean AddClient(Client client);
+    int AddClients(List<Client> clients);
     Client GetClientByName(String name);
     List<Client> GetAllClients();
-    void DeleteClient(Client client);
-    void EditClient(Client client);
+    boolean DeleteClient(Client client);
+    boolean EditClient(Client client);
 
-    void AddProduct(Product product);
-    void AddProducts(List<Product> products);
+    boolean AddProduct(Product product);
+    int AddProducts(List<Product> products);
     Product GetProductByName(String name);
     List<Product> GetAllProducts();
-    void DeleteProduct(Product product);
-    void EditProduct(Product product);
+    boolean DeleteProduct(Product product);
+    boolean EditProduct(Product product);
 
     List<Order> GetClientOrders(Client client);
     List<Product> GetProductsByOrder(Order order);
-    void CreateOrder(Product product, Order order);
+    boolean CreateOrder(Product product, Order order);
 
-    void AddOrder(Order order);
+    boolean AddOrder(Order order);
     Order GetOrderById(int id);
-    void DeleteOrder(Order order);
+    boolean DeleteOrder(Order order);
 }
