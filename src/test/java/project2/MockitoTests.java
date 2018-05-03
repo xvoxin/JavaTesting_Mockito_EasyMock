@@ -2,7 +2,6 @@ package project2;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import project2.Controllers.WebShopController;
 import project2.Interfaces.IDbContext;
@@ -17,12 +16,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-public class MockitoTests
+class MockitoTests
 {
     private final String CLIENT_NAME = "Adrian";
     private final String CLIENT_NAME2 = "Krzysztof";
     private final String CLIENT_NAME3 = "Agata";
     private final String CLIENT_NAME4 = "Stefan";
+    private final String NEW_EMAIL = "testowanie@java.pl";
+
+    private Client client;
 
     private final String CLIENT_SURNAME = "Smith";
     private final String CLIENT_EMAIL = "some@email.com";
@@ -33,15 +35,14 @@ public class MockitoTests
     //@InjectMocks
     private WebShopController webShopController;
 
-    @BeforeEach
-    public void SetUp()
+    @BeforeEach void SetUp ()
     {
         dbMock = mock(IDbContext.class);
         webShopController = new WebShopController(dbMock);
+        client = new Client(CLIENT_NAME, CLIENT_SURNAME, CLIENT_EMAIL);
     }
 
-    @Test
-    public void CheckAddClient_ShouldAddNewClient()
+    @Test void CheckAddClient_ShouldAddNewClient ()
     {
         Client client = new Client(CLIENT_NAME, CLIENT_SURNAME, CLIENT_EMAIL);
         when(dbMock.AddClient(any(Client.class))).thenReturn(true);
@@ -50,18 +51,15 @@ public class MockitoTests
         verify(dbMock, times(1)).AddClient(any(Client.class));
     }
 
-    @Test
-    public void CheckAddClient_ShouldNotAddClient()
+    @Test void CheckAddClient_ShouldNotAddClient ()
     {
-        Client client = new Client(CLIENT_NAME, CLIENT_SURNAME, CLIENT_EMAIL);
         when(dbMock.AddClient(any(Client.class))).thenReturn(false);
 
         assertFalse(webShopController.AddClient(client));
         verify(dbMock, times(1)).AddClient(any(Client.class));
     }
 
-    @Test
-    public void CheckAddClient_ShouldThrowException()
+    @Test void CheckAddClient_ShouldThrowException ()
     {
         Client client = new Client("very", "bad", "exception");
         when(dbMock.AddClient(any(Client.class))).thenThrow(new IllegalArgumentException("Get out!"));
@@ -72,10 +70,8 @@ public class MockitoTests
         });
     }
 
-    @Test
-    public void CheckAddMultipleClients_ShouldReturnProperValue()
+    @Test void CheckAddMultipleClients_ShouldReturnProperValue ()
     {
-        Client client = new Client(CLIENT_NAME, CLIENT_SURNAME, CLIENT_EMAIL);
         Client client2 = new Client(CLIENT_NAME2, CLIENT_SURNAME, CLIENT_EMAIL);
         Client client3 = new Client(CLIENT_NAME3, CLIENT_SURNAME, CLIENT_EMAIL);
         Client client4 = new Client(CLIENT_NAME4, CLIENT_SURNAME, CLIENT_EMAIL);
@@ -90,10 +86,8 @@ public class MockitoTests
         verify(dbMock, times(4)).AddClient(any(Client.class));
     }
 
-    @Test
-    public void CheckAddMultipleClients_ShouldNotAddEveryClient()
+    @Test void CheckAddMultipleClients_ShouldNotAddEveryClient ()
     {
-        Client client = new Client(CLIENT_NAME, CLIENT_SURNAME, CLIENT_EMAIL);
         Client client2 = new Client(CLIENT_NAME2, CLIENT_SURNAME, CLIENT_EMAIL);
         Client client3 = new Client(CLIENT_NAME3, CLIENT_SURNAME, CLIENT_EMAIL);
         Client client4 = new Client(CLIENT_NAME4, CLIENT_SURNAME, CLIENT_EMAIL);
@@ -108,18 +102,15 @@ public class MockitoTests
         verify(dbMock, times(4)).AddClient(any(Client.class));
     }
 
-    @Test
-    public void CheckGetClientByName_ShouldReturnProperClient()
+    @Test void CheckGetClientByName_ShouldReturnProperClient ()
     {
-        Client client = new Client(CLIENT_NAME, CLIENT_SURNAME, CLIENT_EMAIL);
         when(dbMock.GetClientByName(CLIENT_NAME)).thenReturn(client);
 
         assertEquals(webShopController.GetClientByName(CLIENT_NAME), client);
         verify(dbMock, times(1)).GetClientByName(CLIENT_NAME);
     }
 
-    @Test
-    public void CheckGetAllClients_EmptyDB_ShouldReturnZeroClients()
+    @Test void CheckGetAllClients_EmptyDB_ShouldReturnZeroClients ()
     {
         when(dbMock.GetAllClients()).thenReturn(new ArrayList<>());
 
@@ -127,10 +118,8 @@ public class MockitoTests
         verify(dbMock, times(1)).GetAllClients();
     }
 
-    @Test
-    public void CheckGetAllClients_ShouldReturnProperValue()
+    @Test void CheckGetAllClients_ShouldReturnProperValue ()
     {
-        Client client = new Client(CLIENT_NAME, CLIENT_SURNAME, CLIENT_EMAIL);
         Client client2 = new Client(CLIENT_NAME2, CLIENT_SURNAME, CLIENT_EMAIL);
         Client client3 = new Client(CLIENT_NAME3, CLIENT_SURNAME, CLIENT_EMAIL);
         Client client4 = new Client(CLIENT_NAME4, CLIENT_SURNAME, CLIENT_EMAIL);
@@ -142,5 +131,37 @@ public class MockitoTests
                 hasSize(4).containsOnly(client, client2, client3, client4);
 
         verify(dbMock, times(1)).GetAllClients();
+    }
+
+    @Test void CheckDeleteClient_ShouldDeleteClient ()
+    {
+        when(dbMock.DeleteClient(client)).thenReturn(true);
+        assertThat(webShopController.DeleteClient(client)).isTrue();
+        verify(dbMock, times(1)).DeleteClient(client);
+    }
+
+    @Test void CheckDeleteClient_ClientDontExists_ShouldReturnFalse ()
+    {
+        when(dbMock.DeleteClient(client)).thenReturn(false);
+        assertThat(webShopController.DeleteClient(client)).isFalse();
+        verify(dbMock, times(1)).DeleteClient(client);
+    }
+
+    @Test void CheckEditClient_ShouldEdit ()
+    {
+        doAnswer(invocationOnMock ->
+        {
+            Object[] args = invocationOnMock.getArguments();
+            if(args.length == 2)
+            {
+                String email = (String)args[0];
+                Client cl = (Client)args[1];
+                cl.setEmail(email);
+            }
+            return null;
+        }).when(dbMock).EditClientEmail(any(String .class), any(Client.class));
+
+        webShopController.EditClientEmail(NEW_EMAIL, client);
+        assertThat(client.getEmail()).isEqualTo(NEW_EMAIL);
     }
 }

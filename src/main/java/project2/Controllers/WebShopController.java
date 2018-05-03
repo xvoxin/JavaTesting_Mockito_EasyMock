@@ -45,9 +45,9 @@ public class WebShopController implements IWebShopController
         return dbcontext.DeleteClient(client);
     }
 
-    public boolean EditClient (Client client)
+    public void EditClientEmail (String email, Client client)
     {
-        return dbcontext.EditClient(client);
+        dbcontext.EditClientEmail(email, client);
     }
 
     public boolean AddProduct (Product product)

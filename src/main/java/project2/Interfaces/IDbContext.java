@@ -12,7 +12,7 @@ public interface IDbContext
     Client GetClientByName(String name);
     List<Client> GetAllClients();
     boolean DeleteClient(Client client);
-    boolean EditClient(Client client);
+    void EditClientEmail(String email, Client client);
 
     boolean AddProduct(Product product);
     Product GetProductByName(String name);
