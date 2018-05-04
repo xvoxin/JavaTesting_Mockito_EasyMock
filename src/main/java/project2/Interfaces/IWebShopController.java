@@ -19,7 +19,7 @@ public interface IWebShopController
     Product GetProductByName(String name);
     List<Product> GetAllProducts();
     boolean DeleteProduct(Product product);
-    boolean EditProduct(Product product);
+    void EditProductPrice(double price, Product product);
 
     List<Order> GetClientOrders(Client client);
     List<Product> GetProductsByOrder(Order order);

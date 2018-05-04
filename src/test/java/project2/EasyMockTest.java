@@ -1,8 +1,6 @@
 package project2;
 
-import org.easymock.EasyMockSupport;
-import org.easymock.Mock;
-import org.easymock.TestSubject;
+import org.easymock.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import project2.Controllers.WebShopController;
@@ -41,7 +39,7 @@ public class EasyMockTest extends EasyMockSupport
 
     @BeforeEach void SetUp()
     {
-        dbMock = mock(IDbContext.class);
+        dbMock = createMock(IDbContext.class);
         webShopController = new WebShopController(dbMock);
         product = new Product(PRODUCT_NAME, PRODUCT_PRICE);
     }
@@ -149,8 +147,42 @@ public class EasyMockTest extends EasyMockSupport
         verify(dbMock);
     }
 
+    @Test void CheckDeleteProduct_ShouldDeleteProduct ()
+    {
+        expect(dbMock.DeleteProduct(product)).andReturn(true);
+        replay(dbMock);
 
+        webShopController.DeleteProduct(product);
+        verify(dbMock);
+    }
 
+    @Test void CheckDeleteProduct_ProductDontExists_ShouldReturnFalse ()
+    {
+        expect(dbMock.DeleteProduct(product)).andReturn(true);
+        replay(dbMock);
 
+        webShopController.DeleteProduct(product);
+        verify(dbMock);
+    }
 
+    @Test void CheckEditProduct_ShouldEdit ()
+    {
+        dbMock.EditProductPrice(eq(NEW_PRICE), eq(product));
+        EasyMock.expectLastCall().andAnswer(() ->
+        {
+            Object[] args = getCurrentArguments();
+            if (args.length >1)
+            {
+                double price = (double) args[0];
+                Product prod = (Product) args[1];
+                prod.Price = price;
+            }
+            return null;
+        });
+        replay(dbMock);
+
+        webShopController.EditProductPrice(NEW_PRICE, product);
+        assertEquals(NEW_PRICE, product.Price, 0.0001d);
+        verify(dbMock);
+    }
 }

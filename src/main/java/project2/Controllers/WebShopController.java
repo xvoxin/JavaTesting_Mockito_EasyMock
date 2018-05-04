@@ -81,9 +81,9 @@ public class WebShopController implements IWebShopController
         return dbcontext.DeleteProduct(product);
     }
 
-    public boolean EditProduct (Product product)
+    public void EditProductPrice (double price, Product product)
     {
-        return dbcontext.EditProduct(product);
+        dbcontext.EditProductPrice(price, product);
     }
 
     public List<Order> GetClientOrders (Client client)
