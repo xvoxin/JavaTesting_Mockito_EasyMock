@@ -2,7 +2,7 @@ package project2.Models;
 
 public class Client
 {
-    private int id;
+    public int Id;
     public String Name;
     public String Surname;
     public String Email;

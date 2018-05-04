@@ -2,7 +2,7 @@ package project2.Models;
 
 public class Product
 {
-    private int id;
+    public int Id;
     public String Name;
     public double Price;
 
