@@ -1,5 +1,8 @@
 # Testowanie aplikacji JAVA 2017-2018
 ## Projekt 2 (Maven, JUnit oraz atrapy) 
+[![BCH compliance](https://bettercodehub.com/edge/badge/xvoxin/projekt2-xvoxin?branch=master)](https://bettercodehub.com/)
+[![Build Status](https://travis-ci.org/xvoxin/projekt2-xvoxin.svg?branch=master)](https://travis-ci.org/xvoxin/projekt2-xvoxin)
+[![Maintainability](https://api.codeclimate.com/v1/badges/973ade4ff1f3d11371e2/maintainability)](https://codeclimate.com/github/xvoxin/projekt2-xvoxin/maintainability)
 
 -----------------------
 ### REGUŁY GRY
